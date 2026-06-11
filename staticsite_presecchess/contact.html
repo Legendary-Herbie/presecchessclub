@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Presec Chess Club — get in touch with us for inquiries, membership and sponsorship." />
+  <title>Contact — Presec Chess Club</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+</head>
+
+<body>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="brand-link" style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo.png" alt="Presec Chess Club Logo" style="height: 40px; width: auto;" />
+          <div class="brand-text">
+            <h1>Presec Chess Club</h1>
+            <p>Playing With Skill</p>
+          </div>
+        </a>
+      </div>
+      <nav class="navbar-menu" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown-container">
+            <button class="nav-link dropdown-toggle" id="aboutBtn">About</button>
+            <div class="dropdown-menu">
+              <a href="about.html" class="dropdown-item">About Chess Club</a>
+              <a href="rules.html" class="dropdown-item">Rules &amp; Laws</a>
+              <a href="leadership.html" class="dropdown-item">Leadership</a>
+              <a href="gallery.html" class="dropdown-item">Gallery</a>
+              <a href="news.html" class="dropdown-item">News Archive</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="verify.html" class="nav-link">Verify</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="grid two-col">
+          <!-- Left Panel: Info -->
+          <div class="panel glass">
+            <h3>Get in Touch</h3>
+            <p class="sub">Have questions or want to join the club? Reach out to us.</p>
+
+            <div class="timeline" style="margin-top: 30px;">
+              <div class="step">
+                <div class="dot" style="background: var(--blue);"></div>
+                <div>
+                  <h4>Email Us</h4>
+                  <p>info@presecchessclub.com</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="dot" style="background: var(--gold);"></div>
+                <div>
+                  <h4>Visit Us</h4>
+                  <p>Presbyterian Boys' Secondary School, Legon, Accra - Ghana</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="dot" style="background: var(--green);"></div>
+                <div>
+                  <h4>Meeting Hours</h4>
+                  <p>Every Wednesday &amp; Friday &middot; 3:30 PM - 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-panel" style="margin-top: 40px;">
+              <h4 style="font-size: 16px;">Social Presence</h4>
+              <p style="font-size: 13px; color: var(--muted);">Follow us for live match updates and tournament announcements.</p>
+            </div>
+          </div>
+
+          <!-- Right Panel: Form (static placeholder — form submission disabled) -->
+          <div class="panel glass">
+            <h4>Send a Message</h4>
+            <p class="sub">Fill out the form below and we'll get back to you soon.</p>
+
+            <div class="verify-box" style="margin-top: 20px; opacity: 0.6; pointer-events: none;" aria-disabled="true">
+              <div class="input-row">
+                <input type="text" placeholder="Your Name" disabled />
+              </div>
+              <div class="input-row">
+                <input type="email" placeholder="Your Email" disabled />
+              </div>
+              <div class="input-row">
+                <select disabled>
+                  <option>General Inquiry</option>
+                  <option>Membership Application</option>
+                  <option>Sponsorship</option>
+                  <option>Tournament Info</option>
+                </select>
+              </div>
+              <div class="input-row">
+                <textarea rows="5" placeholder="How can we help you?" disabled></textarea>
+              </div>
+              <div class="hero-actions" style="margin-top: 10px;">
+                <button type="button" class="btn btn-primary" style="width: 100%;" disabled>Send Message</button>
+              </div>
+            </div>
+            <p style="margin-top: 16px; font-size: 13px; color: var(--muted); text-align: center;">
+              &#9888; Contact form unavailable in static preview. Please email us directly at <strong style="color: var(--gold);">info@presecchessclub.com</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="display:block; color:white; font-size:14px;">Presec Chess Club</strong>
+          <small>Ludens Ingenio, Playing With Skill</small>
+        </div>
+        <small>&copy; 2026 Presec Chess Club &middot; Verification &amp; Administration Hub</small>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+    if (navToggle && mainNav && navOverlay) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('nav-open');
+        navOverlay.classList.toggle('overlay-open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.classList.toggle('toggle-open', isOpen);
+      });
+      navOverlay.addEventListener('click', () => {
+        mainNav.classList.remove('nav-open');
+        navOverlay.classList.remove('overlay-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('toggle-open');
+      });
+    }
+    const aboutBtn = document.getElementById('aboutBtn');
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1150) e.preventDefault();
+        aboutBtn.nextElementSibling.classList.toggle('dropdown-open');
+        aboutBtn.classList.toggle('dropdown-open');
+      });
+    }
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.dropdown-container').forEach(container => {
+        if (!container.contains(e.target)) {
+          const menu = container.querySelector('.dropdown-menu');
+          const toggle = container.querySelector('.dropdown-toggle');
+          if (menu) menu.classList.remove('dropdown-open');
+          if (toggle) toggle.classList.remove('dropdown-open');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

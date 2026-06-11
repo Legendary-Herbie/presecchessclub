@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Presec Chess Club news archive — stay updated with the latest announcements and tournament reports." />
+  <title>News Archive — Presec Chess Club</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+</head>
+
+<body>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="brand-link" style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo.png" alt="Presec Chess Club Logo" style="height: 40px; width: auto;" />
+          <div class="brand-text">
+            <h1>Presec Chess Club</h1>
+            <p>Playing With Skill</p>
+          </div>
+        </a>
+      </div>
+      <nav class="navbar-menu" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown-container">
+            <button class="nav-link dropdown-toggle" id="aboutBtn">About</button>
+            <div class="dropdown-menu">
+              <a href="about.html" class="dropdown-item">About Chess Club</a>
+              <a href="rules.html" class="dropdown-item">Rules &amp; Laws</a>
+              <a href="leadership.html" class="dropdown-item">Leadership</a>
+              <a href="gallery.html" class="dropdown-item">Gallery</a>
+              <a href="news.html" class="dropdown-item">News Archive</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="verify.html" class="nav-link">Verify</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <h3>News Archive</h3>
+            <p>Stay updated with the latest announcements and tournament reports.</p>
+          </div>
+          <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1fr; gap: 20px; margin-top: 30px; max-width: 900px; margin-left: auto; margin-right: auto;">
+          <!-- Placeholder: news articles will appear here -->
+          <div class="panel glass" style="text-align: center; padding: 60px;">
+            <p style="color: var(--muted); font-size: 18px;">No news articles found.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div>
+          <strong style="display:block; color:white; font-size:14px;">Presec Chess Club</strong>
+          <small>Ludens Ingenio, Playing With Skill</small>
+        </div>
+        <small>&copy; 2026 Presec Chess Club &middot; Verification &amp; Administration Hub</small>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+    if (navToggle && mainNav && navOverlay) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('nav-open');
+        navOverlay.classList.toggle('overlay-open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.classList.toggle('toggle-open', isOpen);
+      });
+      navOverlay.addEventListener('click', () => {
+        mainNav.classList.remove('nav-open');
+        navOverlay.classList.remove('overlay-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('toggle-open');
+      });
+    }
+    const aboutBtn = document.getElementById('aboutBtn');
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1150) e.preventDefault();
+        aboutBtn.nextElementSibling.classList.toggle('dropdown-open');
+        aboutBtn.classList.toggle('dropdown-open');
+      });
+    }
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.dropdown-container').forEach(container => {
+        if (!container.contains(e.target)) {
+          const menu = container.querySelector('.dropdown-menu');
+          const toggle = container.querySelector('.dropdown-toggle');
+          if (menu) menu.classList.remove('dropdown-open');
+          if (toggle) toggle.classList.remove('dropdown-open');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

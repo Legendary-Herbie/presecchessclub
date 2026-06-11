@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Certificate verification - Presec Chess Club" />
+  <title>Verify Certificate - Presec Chess Club</title>
+  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+</head>
+
+<body>
+  <!-- Mobile overlay backdrop -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <!-- Brand Section -->
+      <div class="navbar-brand">
+        <a href="index.html" class="brand-link" style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo.png" alt="Presec Chess Club Logo" style="height: 40px; width: auto;" />
+          <div class="brand-text">
+            <h1>Presec Chess Club</h1>
+            <p>Playing With Skill</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar-menu" id="mainNav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item dropdown-container">
+            <button class="nav-link dropdown-toggle" id="aboutBtn">About</button>
+            <div class="dropdown-menu">
+              <a href="about.html" class="dropdown-item">About Chess Club</a>
+              <a href="rules.html" class="dropdown-item">Rules &amp; Laws</a>
+              <a href="leadership.html" class="dropdown-item">Leadership</a>
+              <a href="gallery.html" class="dropdown-item">Gallery</a>
+              <a href="news.html" class="dropdown-item">News Archive</a>
+            </div>
+          </li>
+          <li class="nav-item"><a href="verify.html" class="nav-link active">Verify</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="verify" class="section">
+      <div class="container grid two-col">
+        <div class="panel verify-box">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: start;">
+              <h4>Certificate Verification</h4>
+            </div>
+            <p class="sub" style="margin-top: 10px; color: var(--muted);">Enter your Certificate ID to verify its authenticity.</p>
+          </div>
+
+          <div style="margin: 30px 0; padding: 25px; border: 1px dashed rgba(215, 179, 92, 0.3); border-radius: 12px; background: radial-gradient(circle at top left, rgba(215, 179, 92, 0.08), transparent 70%); text-align: center;">
+            <div style="font-size: 36px; margin-bottom: 15px; color: var(--gold);">🔧</div>
+            <h5 style="font-size: 18px; margin: 0 0 10px; color: white;">System Under Maintenance</h5>
+            <p style="margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6;">
+              The online certificate verification system is currently undergoing scheduled maintenance. Please check back later, or contact us directly if you require urgent verification.
+            </p>
+          </div>
+
+          <div class="mini-panel">
+            <strong>Security message</strong>
+            <p style="margin:10px 0 0; color:var(--muted); line-height:1.7;">
+              Verification results update in real-time. The record is pulled straight from the Presec Chess Club database on submit.
+            </p>
+          </div>
+        </div>
+
+        <div class="panel cert-preview" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px; text-align:center; padding: 40px 30px;">
+          <div style="width:80px; height:80px; border-radius:50%; background:radial-gradient(circle, rgba(215,179,92,.18), rgba(215,179,92,.05)); border:1px dashed rgba(215,179,92,.3); display:grid; place-items:center; font-size:38px; color:rgba(215,179,92,.4);">
+            &#9819;
+          </div>
+          <div>
+            <p style="margin:0 0 6px; font-size:16px; color:var(--muted); font-weight:600;">No certificate loaded</p>
+            <p style="margin:0; font-size:13px; color:rgba(170,181,214,.55); max-width:28ch; line-height:1.6;">Enter a valid certificate ID on the left and press <em>Verify</em> to see the visual preview here.</p>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+            <span class="chip" style="font-size:11px; opacity:0.5;">CERT-2026-001-A3F2</span>
+            <span style="font-size:12px; color:rgba(170,181,214,.4); align-self:center;">example format</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div>
+            <strong style="display:block; color:white; font-size:14px;">Presec Chess Club</strong>
+            <small>Ludens Ingenio, Playing With Skill</small>
+          </div>
+        </div>
+        <small>&copy; 2026 Presec Chess Club &middot; Verification &amp; Administration Hub</small>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navOverlay = document.getElementById('navOverlay');
+
+    if (navToggle && mainNav && navOverlay) {
+      navToggle.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('nav-open');
+        navOverlay.classList.toggle('overlay-open', isOpen);
+        navToggle.setAttribute('aria-expanded', isOpen);
+        navToggle.classList.toggle('toggle-open', isOpen);
+      });
+
+      navOverlay.addEventListener('click', () => {
+        mainNav.classList.remove('nav-open');
+        navOverlay.classList.remove('overlay-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.classList.remove('toggle-open');
+      });
+
+      mainNav.querySelectorAll('a, button[type="submit"]').forEach(link => {
+        link.addEventListener('click', () => {
+          if (link.classList.contains('dropdown-toggle')) return;
+          mainNav.classList.remove('nav-open');
+          navOverlay.classList.remove('overlay-open');
+          navToggle.setAttribute('aria-expanded', 'false');
+          navToggle.classList.remove('toggle-open');
+        });
+      });
+    }
+
+    const aboutBtn = document.getElementById('aboutBtn');
+    if (aboutBtn) {
+      aboutBtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1150) {
+          e.preventDefault();
+        }
+        const dropdown = aboutBtn.nextElementSibling;
+        dropdown.classList.toggle('dropdown-open');
+        aboutBtn.classList.toggle('dropdown-open');
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      document.querySelectorAll('.dropdown-container').forEach(container => {
+        const menu = container.querySelector('.dropdown-menu');
+        const toggle = container.querySelector('.dropdown-toggle');
+        if (!container.contains(e.target)) {
+          if (menu) menu.classList.remove('dropdown-open');
+          if (toggle) toggle.classList.remove('dropdown-open');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
